@@ -40,11 +40,12 @@ geojson = pdk.Layer(
     stroked=False,
     filled=True,
     extruded=True,
-    wireframe=False,
+    wireframe=True,
     get_elevation="properties.NumStory * 10",
-    get_fill_color="[255, 255, 255]",
-    # get_line_color=[255, 255, 255],
+    get_fill_color=[200, 200, 200],
+    get_line_color=[128, 128, 128],
     pickable=True,
+    material=False,
     tooltip=True
 )
 
@@ -61,14 +62,14 @@ sunlight = {
     "_shadow": True,
 }
 
-ambient_light = {"@@type": "AmbientLight", "color": [255, 255, 255], "intensity": 1}
-
-lighting_effect = {
-    "@@type": "LightingEffect",
-    "shadowColor": [0, 0, 0, 0.5],
-    "ambientLight": ambient_light,
-    "directionalLights": [sunlight],
-}
+# ambient_light = {"@@type": "AmbientLight", "color": [255, 255, 255], "intensity": 1}
+#
+# lighting_effect = {
+#     "@@type": "LightingEffect",
+#     "shadowColor": [0, 0, 0, 0.5],
+#     "ambientLight": ambient_light,
+#     "directionalLights": [sunlight],
+# }
 
 r = pdk.Deck(
     layers=[geojson],
@@ -76,7 +77,7 @@ r = pdk.Deck(
     map_provider='mapbox',
     map_style='mapbox://styles/chjch/cl5sbhze0000614k2u1v1fo3g',
     api_keys={'mapbox': mapbox_api_token},
-    effects=[lighting_effect]
+    # effects=[lighting_effect]
     # views=[map_view]
 )
 
