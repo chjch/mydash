@@ -1,0 +1,8 @@
+dash==2.6.0
+dash_deck==0.0.1
+dash_defer_js_import==0.0.2
+dash_html_components==2.0.0
+dash_leaflet==0.1.23
+pandas==1.4.3
+plotly==5.9.0
+pydeck==0.7.1
